@@ -1,0 +1,24 @@
+body {
+     display: flex; /* display unico */
+     justify-content: center; /* centrado horizontal */
+     align-items: center; /* centrado vertical */
+     min-height: 100vh; /* altura minima */
+     background-color: #fc1e8a; /* color de fondo //Programa para cor Just Color Picker */ 
+}
+
+.container {
+    position:relative; /* posicicao relativa */
+    display: flex; /* display unico */
+    flex-direction: column; /* direção em coluna flexbox */
+    justify-content: center; /* centrado horizontal */
+    align-items: center; /* centrado vertical */
+    gap: 30px;
+    background-color: linear-gradient(325deg,
+    #03001e 0%,
+    #7303c0 30%,
+    #ec38bc 70%,
+    #fdeff9 100%,
+    );
+    padding:40px 60px;
+
+}
