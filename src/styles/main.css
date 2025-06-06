@@ -1,24 +1,96 @@
 body {
-     display: flex; /* display unico */
-     justify-content: center; /* centrado horizontal */
-     align-items: center; /* centrado vertical */
-     min-height: 100vh; /* altura minima */
-     background-color: #fc1e8a; /* color de fondo //Programa para cor Just Color Picker */ 
+    display: flex;    /* display unico */
+    justify-content: center;    /* justificar o conteudo ao centro */
+    align-items: center;    /* centrado vertical */
+    min-height: 100vh;    /* altura minima */
+    background-color: #fc1e8a;    /* cor de fundo gerada com Just Color Picker */
+    user-select: none;
 }
 
 .container {
-    position:relative; /* posicicao relativa */
-    display: flex; /* display unico */
-    flex-direction: column; /* direção em coluna flexbox */
-    justify-content: center; /* centrado horizontal */
-    align-items: center; /* centrado vertical */
+    position: relative;/* posicicao relativa */
+    display: flex;/* display unico */
+    flex-direction: column;    /* direção em coluna */
+    justify-content: center;    /* centrado horizontal */
+    align-items: center;    /* centrado vertical */
     gap: 30px;
-    background-color: linear-gradient(325deg,
-    #03001e 0%,
-    #7303c0 30%,
-    #ec38bc 70%,
-    #fdeff9 100%,
-    );
-    padding:40px 60px;
+    background: linear-gradient(325deg,
+            #03001e 0%,
+            #7303c0 30%,
+            #ec38bc 70%,
+            #fdeff9 100%);
+    padding: 40px 60px;
+}
 
+h2 {
+    font-size: 3em;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;    /* espaçamento entre as letras */
+}
+
+.reset{
+    padding: 15px 20px; /* engordar o retangulo do reset */
+    width: 100%; /* ocupar 100% da caixa dele */
+    color:#000;
+    background-color: #ffffff;
+    border: none; /* retirar a borda*/
+    font-size: 1.5em; /* tamanho da font */
+    letter-spacing: 0.1em; /* espaçamento da fonte */
+    text-transform: uppercase; /* Garantir que a letra fica tudo maiscula */
+    cursor: pointer; /* Mudar o cursor do mouse de seta para mão */
+    font-weight: 600; /* Peso na fonte mais puxada para o negrito */
+}
+
+/* Quando esse botão ganhar focus "clicar", causa efeito */
+.reset:focus{
+    color: #ec38bc;
+    background-color: #262809;       
+}
+
+.game{
+    width: 430px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap; /* Faz uma quebra de linha automatica */
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item{
+    position:relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+
+    font-size: 3em;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+
+/* Trabalhando com pseudo elementos, depois da classe item  */
+
+.item::after{
+    content: "";
+    position: absolute;
+    inset:0;
+    background: #404040;
+    transition: 0.25s;
+    transform: rotateY(0deg)
+    backface-visibility: hidden; /* o que está atras da carta deixndo oculto */
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.item.boxOpen {
+    transform: rotateY(0deg);    
+}
+
+.boxOpen::after,
+.boxMatch::after {
+    transform: rotateY(180deg);
 }
